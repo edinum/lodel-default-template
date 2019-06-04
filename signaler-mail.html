@@ -29,7 +29,7 @@
 <USE MACROFILE="macros_site.html">
 
 
-<LET VAR="subject">Un article de <MACRO NAME="NOM_SITE"> sur [(#CURRENTURL|dirname)] signalé par <IF COND="[#NOM_EXPEDITEUR]">[#NOM_EXPEDITEUR] <ELSE/> un ami</IF></LET>
+<LET VAR="subject">Un article de <MACRO NAME="NOM_SITE"> sur [(#CURRENTURL|dirname)] signalÃ© par <IF COND="[#NOM_EXPEDITEUR]">[#NOM_EXPEDITEUR] <ELSE/> un ami</IF></LET>
 <html>
 	<head>
 		<title><MACRO NAME="NOM_SITE"></title>
@@ -37,7 +37,7 @@
 	<body>
 		Bonjour [#NOM_DESTINATAIRE] <[#TO]>,
 		<blockquote>
-			[#NOM_EXPEDITEUR] &lt;[#FROM]&gt; a visité le site "<MACRO NAME="NOM_SITE">" sur [(#CURRENTURL|dirname)] et vous conseille de visiter la page :
+			[#NOM_EXPEDITEUR] &lt;[#FROM]&gt; a visitÃ© le site "<MACRO NAME="NOM_SITE">" sur [(#CURRENTURL|dirname)] et vous conseille de visiter la page :
 			<br />
 			<a href="[(#CURRENTURL|dirname)]/[(#ID|makeurlwithid('document'))]">[(#CURRENTURL|dirname)]/[(#ID|makeurlwithid('document'))]</a>
 			<br />
@@ -47,7 +47,7 @@
 		Merci pour votre attention.<br />
 		<br />
 		<blockquote>
-			<strong>Voici le document signalé :</strong>
+			<strong>Voici le document signalÃ© :</strong>
 			<blockquote>
 				<MACRO NAME="PARU_DANS"><br />
 				<strong>Auteur(s) :</strong> <MACRO NAME="LISTER_AUTEURS">
@@ -59,10 +59,10 @@
 				</IF>
 				<br />
 				<IF COND="[#RESUME:FR]">
-					<br />		<strong>Résumé :</strong><br />
+					<br />		<strong>RÃ©sumÃ© :</strong><br />
 					 [#RESUME:FR]
 				<ELSE/>
-					<strong>Le début de l'article :</strong>
+					<strong>Le dÃ©but de l'article :</strong>
 					[(#TEXTE|couper(1000))] (...)
 				</IF>
 		
@@ -74,7 +74,7 @@
 	    
 				<IF COND="[#TEXTE] and ([#DATEPUBLI] ge today())">
 					<br />
-                                        <a href="[(#CURRENTURL|dirname)]/[(#ID|makeurlwithid('document'))]">Le texte intégral</a> se trouve en ligne.
+                                        <a href="[(#CURRENTURL|dirname)]/[(#ID|makeurlwithid('document'))]">Le texte intÃ©gral</a> se trouve en ligne.
 				</IF>
 				<br />
 			</blockquote>
@@ -84,6 +84,6 @@
 		<strong>Limites de l'usage de ce service de signalement par courriel</strong><br />
 		<em>En cas d'abus</em>
 		<br />
-		Le signalement d'articles par courrier électronique peut être détournée de sa vocation première. Si vous jugez être victime d'un abus de ce service par un internaute mal intentionné, n'hésitez pas à nous signaler le problème à l'adresse <MACRO NAME="MAIL_ABUS">.
+		Le signalement d'articles par courrier Ã©lectronique peut Ãªtre dÃ©tournÃ©e de sa vocation premiÃ¨re. Si vous jugez Ãªtre victime d'un abus de ce service par un internaute mal intentionnÃ©, n'hÃ©sitez pas Ã  nous signaler le problÃ¨me Ã  l'adresse <MACRO NAME="MAIL_ABUS">.
 	</body>
 </html>

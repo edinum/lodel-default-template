@@ -73,7 +73,7 @@ Home page: http://www.lodel.org
 
 		<link rel="stylesheet" type="text/css" href="css/styles_site.css" media="screen" title="Ecran" />
 		<link rel="stylesheet" type="text/css" media="print" href="css/styles_site_print.css"  title="Impression" />
-		<link rel="alternate" type="application/rss+xml" title="Actualit�s de <MACRO NAME="NOM_SITE" />" href="index.[#EXTENSIONSCRIPTS]?page=backend&amp;format=rssdocuments" />
+		<link rel="alternate" type="application/rss+xml" title="Actualités de <MACRO NAME="NOM_SITE" />" href="index.[#EXTENSIONSCRIPTS]?page=backend&amp;format=rssdocuments" />
 
 		<link rel="alternate" type="application/rss+xml" title="Flux RSS de [#TITREFLUX]" href="index.[#EXTENSIONSCRIPTS]?page=backend&amp;format=rss&amp;ident=[#IDRECUP]" />
 
@@ -222,12 +222,12 @@ Home page: http://www.lodel.org
 <!--[ Fin Macros Techniques ]-->
 
 
-<!--[ Macros Communes � toutes les pages ]-->
+<!--[ Macros Communes à toutes les pages ]-->
 
 <DEFMACRO NAME="PRELUDE">
 	<div id="main">	
 		<div id="accessible">
-			<a href="#menu">Aller � la navigation</a>
+			<a href="#menu">Aller à la navigation</a>
 			&nbsp;|&nbsp;
 			<a href="#inside">Aller au contenu</a>
 		</div>		
@@ -255,14 +255,14 @@ Home page: http://www.lodel.org
 </DEFMACRO>
 
 <DEFMACRO NAME="FOOTER"> 
-	<div id="footer"><a href="http://www.lodel.org">�dit� par Lodel</a> |�<a href="lodel/">acc�s r�serv�</a></div>
+	<div id="footer"><a href="http://www.lodel.org">édité par Lodel</a> | <a href="lodel/">accès réservé</a></div>
 </DEFMACRO>
 
-<!--[ Fin Macros Communes � toutes les pages ]-->
+<!--[ Fin Macros Communes à toutes les pages ]-->
 
 
-<!--[ Macros identifiant le site pour titres et m�tadonn�es ]-->
-<!--[ Si le nom de la macro se termine par METAS, N'ins�rez que des caract�res autoris�s dans les balises m�ta, surtout pas de html !!! ]-->
+<!--[ Macros identifiant le site pour titres et métadonnées ]-->
+<!--[ Si le nom de la macro se termine par METAS, N'insérez que des caractères autorisés dans les balises méta, surtout pas de html !!! ]-->
 
 <DEFMACRO NAME="NOM_SITE">
 	<LOOP NAME="getSiteName" TABLE="sites" WHERE="name = '[#SITE]' AND status GT 0">
@@ -282,7 +282,7 @@ Home page: http://www.lodel.org
 </DEFMACRO>
 
 <DEFMACRO NAME="EDITEUR_SITE_POUR_METAS">
-	Nom de votre �diteur
+	Nom de votre éditeur
 </DEFMACRO>
 
 <DEFMACRO NAME="DESCRIPTION_SITE">
@@ -296,12 +296,12 @@ Home page: http://www.lodel.org
 <DEFMACRO NAME="DESCRIPTION_META_SOMMAIRE">
 <!--[ ****************************************************************** ]-->
 <!--[ version 2.0                                                        ]-->
-<!--[ Cette macro est destin�e � l'affichage des m�tadonn�es.            ]-->
+<!--[ Cette macro est destinée à l'affichage des métadonnées.            ]-->
 <!--[ ****************************************************************** ]-->
 	<LOOP NAME="extrait_premier_article" TABLE="textes" ORDER="rank ASC" WHERE="idparent='[#ID]'" LIMIT="0,1">
 		<DO>
 			<IF COND="[#TEXTE]">
-				Extrait du premier article du num�ro: 
+				Extrait du premier article du numéro: 
 				[(#TEXTE|removenotes|couper(1500)|textebrut|replacequotationmark)]
 			<ELSE/>
 				<LOOP NAME="desc_meta_sommaire" TABLE="textes, relations" WHERE="id1='[#IDPARENT]' AND id=id2">
@@ -331,7 +331,7 @@ Home page: http://www.lodel.org
 	</LOOP>
 </DEFMACRO>
 
-<!--[ Fin Macros identifiant le site pour titres et m�tadonn�es ]-->
+<!--[ Fin Macros identifiant le site pour titres et métadonnées ]-->
 
 <!--[ Macros d'affichage ]-->
 
@@ -472,7 +472,7 @@ Home page: http://www.lodel.org
 
 <DEFMACRO NAME="ENTREESPERSONNES">
 <!--[ ****************************************************************** ]-->
-<!--[ Classement alphab�tique des entr�es                                ]-->
+<!--[ Classement alphabétique des entrées                                ]-->
 <!--[ ****************************************************************** ]-->
 
 <div class="alphabet" id="tabAlpha">
@@ -570,7 +570,7 @@ Home page: http://www.lodel.org
 	<LOOP NAME="paru_dans_simple_citation" TABLE="relations, entities" WHERE="id2='[#ID]' AND id = id1">
                 [#G_TITLE], 
 	</LOOP>
-	mis � jour le : [#MODIFICATIONDATE|formateddate('%d/%m/%Y')], 
+	mis à jour le : [#MODIFICATIONDATE|formateddate('%d/%m/%Y')], 
 	URL : [#CURRENTURL|dirname]/[#ID|makeurlwithid].
 </DEFMACRO>
 
@@ -587,7 +587,7 @@ Home page: http://www.lodel.org
 
 <!--[ ****************************************************************** ]-->
 <!--[ Pour les flux XML RSS Universels                                   ]-->
-<!--[ ajout� par Micka�l Sellapin 05/12/06                               ]-->
+<!--[ ajouté par Mickaël Sellapin 05/12/06                               ]-->
 <!--[ ****************************************************************** ]-->
 
 <DEFMACRO NAME="AFFICHER_PARENT">
@@ -770,7 +770,7 @@ Home page: http://www.lodel.org
 <DEFMACRO NAME="PRESENTER_PUBLICATION_SANS_INTRODUCTION">
 <!--[ ****************************************************************** ]-->
 <!--[ version 2.0                                                        ]-->
-<!--[ Cr� un bloc qui affiche le titre du num&eacute;ro ou de la rubrique,     ]-->
+<!--[ Crï¿½ un bloc qui affiche le titre du num&eacute;ro ou de la rubrique,     ]-->
 <!--[ sauf s'il est vide, auquel cas il affiche le nom du site.          ]--> 
 <!--[ Cette macro fait appel aux macros suivantes :                      ]-->
 <!--[ <MACRO NAME="BOUTON_EDITER_PUBLICATION">                           ]-->
@@ -808,7 +808,7 @@ Home page: http://www.lodel.org
 <!--[ ****************************************************************** ]-->
 <!--[ version 2.0                                                        ]-->
 <!--[ Affiche le titre de la partie Bibliographie (ici "Bibliographie")  ]-->
-<!--[ dans la langue d�inie pour le texte d'un document.                ]-->
+<!--[ dans la langue dï¿½inie pour le texte d'un document.                ]-->
 <!--[ ****************************************************************** ]-->
 	<IF COND="([#LANG] EQ 'fr') OR ([#LANG] EQ 'FR')">
 		<strong>Bibliographie</strong>
@@ -820,7 +820,7 @@ Home page: http://www.lodel.org
 				Bibliografia
 			<ELSE/>
 				<IF COND="([#LANG] EQ 'es') OR ([#LANG] EQ 'ES')">
-					Bibliograf�
+					Bibliografï¿½
 				<ELSE/>
 					<IF COND="([#LANG] EQ 'de') OR ([#LANG] EQ 'DE')">
 						Bibliographie
@@ -880,7 +880,7 @@ Home page: http://www.lodel.org
 <DEFMACRO NAME="ICONE_PUBLICATION">
 <!--[ ****************************************************************** ]-->
 <!--[ version 2.0                                                        ]-->
-<!--[ Affiche, s'il elle existe, l'ic�e de la publication.              ]-->
+<!--[ Affiche, s'il elle existe, l'icï¿½e de la publication.              ]-->
 <!--[ ****************************************************************** ]-->
 	<IF COND="[#ICONE]">
 		<a href="[#ID|makeurlwithid]">
@@ -893,8 +893,8 @@ Home page: http://www.lodel.org
 <!--[ ****************************************************************** ]-->
 <!--[ version 2.0                                                        ]-->
 <!--[ Affiche, si elle existe, l'introduction d'une publication, avec    ]-->
-<!--[ une ic�e et une lettrine.                                         ]-->
-<!--[ Cette macro fait appel �la macro suivante :                       ]-->
+<!--[ une icï¿½e et une lettrine.                                         ]-->
+<!--[ Cette macro fait appel ï¿½la macro suivante :                       ]-->
 <!--[ <MACRO NAME="ICONE_PUBLICATION">                                   ]-->
 <!--[ ****************************************************************** ]-->
 	<IF COND="[#TEXTE]">
@@ -906,9 +906,9 @@ Home page: http://www.lodel.org
 <DEFMACRO NAME="INTRODUCTION_COURTE">
 <!--[ ****************************************************************** ]-->
 <!--[ version 2.0                                                        ]-->
-<!--[ Affiche avec une ic�e et une lettrine les 1500 premiers           ]-->
-<!--[ caract�es de l'introduction d'une publication.                    ]-->
-<!--[ Cette macro fait appel �la macro suivante :                       ]-->
+<!--[ Affiche avec une icï¿½e et une lettrine les 1500 premiers           ]-->
+<!--[ caractï¿½es de l'introduction d'une publication.                    ]-->
+<!--[ Cette macro fait appel ï¿½la macro suivante :                       ]-->
 <!--[ <MACRO NAME="ICONE_PUBLICATION">                                   ]-->
 <!--[ ****************************************************************** ]-->
 	<IF COND="[#TEXTE]">
@@ -928,7 +928,7 @@ Home page: http://www.lodel.org
 <DEFMACRO NAME="INTRODUCTION_COURTE_SIMPLE">
 <!--[ ****************************************************************** ]-->
 <!--[ version 2.0                                                        ]-->
-<!--[ Affiche sans lettrine les 1500 premiers caract�es de              ]-->
+<!--[ Affiche sans lettrine les 1500 premiers caractï¿½es de              ]-->
 <!--[ l'introduction d'une publication.                                  ]-->
 <!--[ ****************************************************************** ]-->
 	<IF COND="[#TEXTE]">
@@ -951,7 +951,7 @@ Home page: http://www.lodel.org
 
 <!--[ ****************************************************************** ]-->
 <!--[ version 2.0                                                        ]-->
-<!--[ Affiche les recensions, ou les documents recens� s'il y en a      ]-->
+<!--[ Affiche les recensions, ou les documents recensï¿½ s'il y en a      ]-->
 <!--[ ****************************************************************** ]-->
 
 
@@ -968,7 +968,7 @@ Home page: http://www.lodel.org
 <LOOP NAME="parent_compterendu2" TABLE="documents" WHERE="idparent='[#ID]'">
 
 		<h4>
-						&gt;&gt; Voir l'article recens�:
+						&gt;&gt; Voir l'article recensï¿½:
 					</h4>
 <div class="afficherdocument">
 <a href="[#ID|makeurlwithid]">[#NOTICEBIBLIO] </a>

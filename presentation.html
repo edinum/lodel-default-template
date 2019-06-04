@@ -10,7 +10,7 @@
 <!--[ ****************************************************************** ]-->
 <!--[ Cette page affiche les documents de type article.                  ]-->
 <!--[ Auteur : Marin Dacos, Anne Gentil-Beccot. Mai 2003.                ]-->
-<!--[ Dernière modification majeure en mai 2003.                         ]-->
+<!--[ DerniÃ¨re modification majeure en mai 2003.                         ]-->
 <!--[ ****************************************************************** ]-->
 
 
@@ -28,24 +28,24 @@
 			<USE TEMPLATEFILE="barre"> 
 		</div>
 	
-		<!--[ Ouvre <div> qui vient se placer à droite de la barre verticale. Ce div contient deux autres div
+		<!--[ Ouvre <div> qui vient se placer Ã  droite de la barre verticale. Ce div contient deux autres div
 		de class "separation" et class "contenu" ]-->
 		<div class="corps">
 
-			<!--[ ce div permet d'intégrer les lignes horizontales qui créeent une séparation entre la barre de
+			<!--[ ce div permet d'intÃ©grer les lignes horizontales qui crÃ©eent une sÃ©paration entre la barre de
 			de nav et le contenu de la page" ]-->
 			<!--[<div class="separation">
 				&nbsp;
 			</div>]-->
 		
-			<!--[ ce div permet d'intégrer le  contenu de la page" ]-->
+			<!--[ ce div permet d'intÃ©grer le  contenu de la page" ]-->
 			<div class="contenu">
 		
 				<!--[ logo de Lodelia]-->
 				<MACRO NAME="IMG_LOGO_LODELIA">
 			
 				<!--[ Affiche les infos concernant la publication dans laquelle est contenu le document: nom de la revue,
-				titre et nom du numéro, ]-->		
+				titre et nom du numÃ©ro, ]-->		
 				<div class="titre1">
 					[#TITRE] 
 					<IF COND="[#SOUSTITRE]">
@@ -66,10 +66,10 @@
 					</div>
 				</IF>
 				
-				<!--[ Notes de la rédaction -]-->
+				<!--[ Notes de la rÃ©daction -]-->
 				<IF COND="[#NDLR]">
 				<div class="titre3">
-					Notes de la rédaction
+					Notes de la rÃ©daction
 				</div>
 				<div class="notes"> 
 					[#NDLR]
@@ -88,17 +88,17 @@
 					</div>
 				</IF>
 				
-				<!--[ Affichage du résumé en français   ]-->
+				<!--[ Affichage du rÃ©sumÃ© en franÃ§ais   ]-->
 				<IF COND="[#RESUME:FR]">
 					<div class="titre3">
-						Résumé
+						RÃ©sumÃ©
 					</div>
 					<div class="resume" > 
 						[#RESUME:FR]
 					</div>		
 				</IF>
 				
-				<!--[ Résumé en anglais   ]-->
+				<!--[ RÃ©sumÃ© en anglais   ]-->
 				<IF COND="[#RESUME:EN]">
 					<div class="titre3"> 
 						Abstract
@@ -108,7 +108,7 @@
 					</div>
 				</IF>
 				
-				<!--[ Résumé en espagnol   ]-->
+				<!--[ RÃ©sumÃ© en espagnol   ]-->
 				<IF COND="[#RESUME:ES]">
 					<div class="titre3"> 
 						Extracto
@@ -118,7 +118,7 @@
 					</div>
 				</IF>
 				
-				<!--[ Résumé en allemand   ]-->
+				<!--[ RÃ©sumÃ© en allemand   ]-->
 				<IF COND="[#RESUME:DE]">
 					<div class="titre3"> 
 						Zusammenfassung
@@ -128,7 +128,7 @@
 					</div>
 				</IF>
 				
-				<!--[ Résumé en italien   ]-->
+				<!--[ RÃ©sumÃ© en italien   ]-->
 				<IF COND="[#RESUME:IT]">
 					<div class="titre3"> 
 						Riassunto
@@ -140,7 +140,7 @@
 	
 					
 		<!--[ ----------------------------------------------------------------------- ]-->
-		<!--[ Cette partie ne s'affiche que si le texte est autorisé à la publication ]-->
+		<!--[ Cette partie ne s'affiche que si le texte est autorisÃ© Ã  la publication ]-->
 		<!--[ ----------------------------------------------------------------------- ]-->
 		
 			<IF COND="[#DATEPUBLI] le today()">
@@ -149,7 +149,7 @@
 				<IF COND="[#TEXTE]">
 					<div class="titre3">
 						<IF COND="[#TYPE]!='presentation'">
-							Texte intégral
+							Texte intÃ©gral
 						</IF>
 					</div>
 					<div class="texte">
@@ -207,17 +207,17 @@
 					</div>
 				</IF>
 								
-			<!--[ Si le texte n'est pas encore autorisé à être publié ]-->
+			<!--[ Si le texte n'est pas encore autorisÃ© Ã  Ãªtre publiÃ© ]-->
 			<ELSE/>
 				<p class="texte">
-					Ce document sera publié en ligne en texte intégral le [(#DATEPUBLI|humandate)].
+					Ce document sera publiÃ© en ligne en texte intÃ©gral le [(#DATEPUBLI|humandate)].
 				</p>
 			</IF>
 				
 			<!--[ Affiche la description de l'auteur ]-->		
 			<MACRO NAME="DESCRITION_AUTEUR"> 
 				
-			<!--[ Affiche la meta image associée au document s'il y en a une ]-->			
+			<!--[ Affiche la meta image associÃ©e au document s'il y en a une ]-->			
 			<div class="revuesorg">
 				<IF COND="[#ICONE]">
 					<IMG SRC="[#ICONE]" NAME="[#IDENTIFIANT]" BORDER='0' alt="[#IDENTIFIANT]" HSPACE="0" VSPACE="0">

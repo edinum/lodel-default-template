@@ -90,7 +90,7 @@
 	<ALTERNATIVE>
 	<IF COND="(![#IDENT]) AND (![#QUERY])">
  
-	<!--[ pour la page d'accueil - affiche les dix derniers documents publi�s ]-->
+	<!--[ pour la page d'accueil - affiche les dix derniers documents publiés ]-->
 
 		<LOOP NAME="titre_site" TABLE="sites" WHERE="name='[#SITE]' AND status GT 0" LIMIT="0,1">
    			<title>[#TITLE]</title>
@@ -124,7 +124,7 @@
 
 		<title>Index [#TITLE]</title>
 		<link>[#CURRENTURL|dirname]/[#ID|makeurlwithid]</link>
-		<description>Les derni�res entr�es de l'index [#TITLE]</description>
+		<description>Les dernières entrées de l'index [#TITLE]</description>
 		<language>fr</language>
     		<ttl>0</ttl>
 		
@@ -159,7 +159,7 @@
 				<IF COND="[#ID|get_dc_fields('description')]">
 					[#ID|get_dc_fields('description')|textebrut|htmlspecialchars]
 				<ELSE />
-					<!--[ � discuter de la description du flux ]-->
+					<!--[ à discuter de la description du flux ]-->
 				</IF>
 			</description>
 		
@@ -173,14 +173,14 @@
   
 
 
-<!--[ pour la liste des 10 derni�res entr�es d'un index ]-->
+<!--[ pour la liste des 10 dernières entrées d'un index ]-->
 
      	<LOOP NAME="listeIndexGeneral" TABLE="entrytypes" WHERE="entrytypes.id='[#IDENT]'">
 		<DO>
 
 		<title>[#TITLE]</title>
 		<link>[#CURRENTURL|dirname]/[#ID|makeurlwithid]</link>
-		<description>Les derni�res entr�es de [#TITLE]</description>
+		<description>Les dernières entrées de [#TITLE]</description>
 		<language>fr</language>
     		<ttl>0</ttl>
 		
@@ -196,7 +196,7 @@
      	</LOOP>
 
 
-<!--[ pour l'index de mot clés, keywords, palabras clave, géographique, chronologique, thématique   ]-->
+<!--[ pour l'index de mot clÃ©s, keywords, palabras clave, gÃ©ographique, chronologique, thÃ©matique   ]-->
 
 	<LOOP NAME="indexGeneral" TABLE="entries" WHERE="entries.id='[#IDENT]'">
 		<DO>
